@@ -40,7 +40,7 @@
           <h1 class="title">Generating Audio Prediction using Machine Learning </h1>
         </div>
         <div class="audio-mic">
-          <button type="submit">
+          <button type="submit" id="mic">
             <img src="../css/img/mic.png" alt="submit"/>
           </button>
         </div>
@@ -100,23 +100,7 @@
             integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I="
             crossorigin="anonymous">
     </script>
-
-    <script type="text/javascript" charset="utf-8">
-
-      var socket = io.connect('/')
-
-      socket.on('connect', function () {
-        socket.emit('audio-streaming', {})
-        console.log('Connected')
-      })
-
-      socket.on('gender_model', function (ms) {
-        $('div.gender-box').text(ms.pred).html()
-        $('div.category-prob-gender').text(ms.prob).html()
-      })
-
-
-    </script>
+    <script src="{{ url_for('static', filename='audio.js') }}"></script>
   </main>
 </body>
 <footer class="main-footer">
